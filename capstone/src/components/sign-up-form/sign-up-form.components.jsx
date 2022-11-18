@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import FormInput from "../form-input/form-input.component";
+
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -15,8 +17,6 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  // console.log(formFields);
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
@@ -47,6 +47,7 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormFields({ ...formFields, [name]: value });
   };
 
@@ -54,41 +55,37 @@ const SignUpForm = () => {
     <div>
       <h1>Sign up with your email and password</h1>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
+        <FormInput
+          label="Display Name"
           type="text"
-          required
           onChange={handleChange}
-          name="displayName"
           value={displayName}
-        ></input>
+          name="displayName"
+        />
 
-        <label>Email</label>
-        <input
+        <FormInput
+          label="Email"
           type="email"
-          required
           onChange={handleChange}
-          name="email"
           value={email}
-        ></input>
+          name="email"
+        />
 
-        <label>Password</label>
-        <input
+        <FormInput
+          label="Password"
           type="password"
-          required
           onChange={handleChange}
-          name="password"
           value={password}
-        ></input>
+          name="password"
+        />
 
-        <label>Confirm Password</label>
-        <input
+        <FormInput
+          label="Confirm Password"
           type="password"
-          required
           onChange={handleChange}
-          name="confirmPassword"
           value={confirmPassword}
-        ></input>
+          name="confirmPassword"
+        />
 
         <button type="submit">Sign Up</button>
       </form>
