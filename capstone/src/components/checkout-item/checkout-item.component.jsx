@@ -3,27 +3,21 @@ import { CartContext } from "../../contexts/cart.context";
 
 import "./checkout-item.styles.scss";
 
-const CheckoutItem = ({ item }) => {
-  const { imageUrl, name, price, quantity } = item;
+const CheckoutItem = ({ cartItem }) => {
+  const { imageUrl, name, price, quantity } = cartItem;
 
   const { addItemToCart } = useContext(CartContext);
 
   return (
-    <tr className="checkout-item-container ">
-      <td className="image-container">
-        <img src={imageUrl} />
-      </td>
-      <td className="name">{name}</td>
-      <td className="quantity">
-        <span>-</span>
-        {quantity}
-        <span onClick={() => addItemToCart(item)}>+</span>
-      </td>
-      <td className="price">{price}</td>
-      <td>
-        <span>X</span>
-      </td>
-    </tr>
+    <div className="checkout-item-container">
+      <div className="image-container">
+        <img src={imageUrl} alt={`${name}`} />
+      </div>
+      <span className="name">{name}</span>
+      <span className="quantity">{quantity}</span>
+      <span className="price">{price}</span>
+      <div className="remove-button">&#10005;</div>
+    </div>
   );
 };
 
