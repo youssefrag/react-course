@@ -46,7 +46,7 @@ export const CartContext = createContext({
   removeItemFromCart: () => {},
   clearItemFromCart: () => {},
   cartCount: 0,
-  total: 0,
+  cartTotal: 0,
 });
 
 export const CartProvider = ({ children }) => {
@@ -80,10 +80,6 @@ export const CartProvider = ({ children }) => {
   };
   const clearItemFromCart = (cartItemToClear) => {
     setCartItems(clearCartItem(cartItems, cartItemToClear));
-  };
-
-  const getTotal = (cartItems) => {
-    console.log(cartItems);
   };
 
   const value = {
