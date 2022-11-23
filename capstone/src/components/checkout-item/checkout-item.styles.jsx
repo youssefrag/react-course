@@ -36,9 +36,3 @@ export const RemoveButton = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `;
-
-//   .remove-button {
-//     padding-left: 12px;
-//     cursor: pointer;
-//   }
-// }
