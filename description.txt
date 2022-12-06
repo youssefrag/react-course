@@ -1,1 +1,1 @@
-React course includes Firebase and Stripe payment systems. Another one! another one
+React course includes Firebase and Stripe payment systems. Another one! another one! one more!
