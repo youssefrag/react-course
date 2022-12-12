@@ -21,7 +21,9 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const resetFormFields = () => setFormFields(defaultFormFields);
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,9 +43,9 @@ const SignUpForm = () => {
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user. Email already in use");
+        alert("Cannot create user, email already in use");
       } else {
-        console.log("user creation encountered an error:", error);
+        console.log("user creation encountered an error", error);
       }
     }
   };
@@ -62,35 +64,38 @@ const SignUpForm = () => {
         <FormInput
           label="Display Name"
           type="text"
+          required
           onChange={handleChange}
-          value={displayName}
           name="displayName"
+          value={displayName}
         />
 
         <FormInput
           label="Email"
           type="email"
+          required
           onChange={handleChange}
-          value={email}
           name="email"
+          value={email}
         />
 
         <FormInput
           label="Password"
           type="password"
+          required
           onChange={handleChange}
-          value={password}
           name="password"
+          value={password}
         />
 
         <FormInput
           label="Confirm Password"
           type="password"
+          required
           onChange={handleChange}
-          value={confirmPassword}
           name="confirmPassword"
+          value={confirmPassword}
         />
-
         <Button type="submit">Sign Up</Button>
       </form>
     </SignUpContainer>
