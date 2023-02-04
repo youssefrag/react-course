@@ -4,7 +4,7 @@ import { selectCartItems } from "../../store/cart/cart.selector";
 
 import {
   addItemToCart,
-  removeItemToCart,
+  removeItemFromCart,
   clearItemFromCart,
 } from "../../store/cart/cart.action";
 
@@ -25,14 +25,11 @@ const CheckoutItem = ({ cartItem }) => {
 
   const dispatch = useDispatch();
 
-  // const { clearItemFromCart, addItemToCart, removeItemToCart } =
-  //   useContext(CartContext);
-
   const clearItemHandler = () =>
     dispatch(clearItemFromCart(cartItems, cartItem));
   const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
   const removeItemHandler = () =>
-    dispatch(removeItemToCart(cartItems, cartItem));
+    dispatch(removeItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>
