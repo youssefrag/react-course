@@ -1,6 +1,10 @@
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
 
-import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+
+import { selectCartItems } from "../../store/cart/cart.selector";
+
+import { addItemToCart } from "../../store/cart/cart.action";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
@@ -13,9 +17,12 @@ import {
 
 const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
-  const { addItemToCart } = useContext(CartContext);
 
-  const addProductToCart = () => addItemToCart(product);
+  const cartItems = useSelector(selectCartItems);
+
+  const dispatch = useDispatch();
+
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
     <ProductCartContainer>
