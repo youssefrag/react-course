@@ -8,10 +8,9 @@ import {
   SignInContainer,
   ButtonsContainer,
 } from "./sign-in-form.styles.styles";
-import {
-  googleSignInStart,
-  emailSignInStart,
-} from "../../store/user/user.action";
+// import // googleSignInStart,
+// // emailSignInStart,
+// "../../store/user/user.action";
 
 const defaultFormFields = {
   email: "",
@@ -28,19 +27,19 @@ const SignInForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const signInWithGoogle = async () => {
-    dispatch(googleSignInStart());
-  };
+  // const signInWithGoogle = async () => {
+  //   dispatch(googleSignInStart());
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      dispatch(emailSignInStart(email, password));
-      resetFormFields();
-    } catch (error) {
-      console.log("user sign in failed", error);
-    }
+    // try {
+    //   dispatch(emailSignInStart(email, password));
+    //   resetFormFields();
+    // } catch (error) {
+    //   console.log("user sign in failed", error);
+    // }
   };
 
   const handleChange = (event) => {
@@ -76,7 +75,7 @@ const SignInForm = () => {
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
-            onClick={signInWithGoogle}
+            // onClick={signInWithGoogle}
           >
             Sign In With Google
           </Button>
