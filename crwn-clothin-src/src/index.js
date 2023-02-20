@@ -16,7 +16,7 @@ render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Elements striple={stripePromise}>
+        <Elements stripe={stripePromise}>
           <App />
         </Elements>
       </BrowserRouter>
