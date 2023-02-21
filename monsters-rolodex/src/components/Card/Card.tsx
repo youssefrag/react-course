@@ -1,6 +1,12 @@
+import { Monster } from "../../App";
+
 import "./Card.css";
 
-const Card = ({ monster: { name, id, email } }) => (
+type CardProps = {
+  monster: Monster;
+};
+
+const Card = ({ monster: { id, name, email } }: CardProps) => (
   <div className="card-container">
     <img
       alt={`monster ${name}`}
